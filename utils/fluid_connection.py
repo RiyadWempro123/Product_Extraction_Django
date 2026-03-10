@@ -26,6 +26,7 @@ def extract_parts_from_table(table, pdf_name, page_no):
     # Detect variant headers (PX01X-XXX)
     variant_row = table[2]
     variants = [normalize(c) for c in variant_row if c and normalize(c).startswith("PX")]
+   
 
     if not variants:
         return rows
