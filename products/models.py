@@ -53,14 +53,28 @@ class ModeldescriptionChart(models.Model):
 
 class CommonParts(models.Model):
     productSeries = models.CharField(max_length=100)
-    item = models.CharField(max_length=30)
-    description = models.CharField(max_length=50)
-    quantity = models.CharField (max_length=10, blank=True, null=True)
-    partNo = models.CharField(max_length=15, blank=True, null=True)
-    material = models.CharField(max_length=15, blank=True, null=True)
+    commonPartJson = models.TextField(blank=True, null = True)
+    status = models.CharField(max_length=1, default="N")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
     
     class Meta:
         db_table = "CommonParts"
 
     def __str__(self):
-        return f"{self.item} - {self.description}"
+        return f"{self.productSeries}"
+
+class SeatOptions(models.Model):
+    productSeries = models.CharField(max_length=100)
+    SeatOptionJson = models.TextField(blank=True, null = True)
+    status = models.CharField(max_length=1, default="N")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    
+    class Meta:
+        db_table = "SeatOptions"
+
+    def __str__(self):
+        return f"{self.productSeries}"

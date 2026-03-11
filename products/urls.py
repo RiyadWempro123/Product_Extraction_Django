@@ -8,5 +8,7 @@ from .views import model_description, common_parts
 urlpatterns = [
     path('home/', views1.PumpManualUploadAPI.as_view(), name = "home"),
     path("modeldescription/", model_description.ModelDescriptionAPI.as_view(), name="modeldescription"),
-    path("commonparts/", common_parts.CommonPartsAPI.as_view(), name="commonparts")
+    path("commonparts/", common_parts.CommonPartsAPI.as_view(), name="commonparts"),
+    path("seatoptions/", common_parts.CommonPartsAPI.as_view(), name="seatoptions"),
+    
 ]

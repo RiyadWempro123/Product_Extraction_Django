@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.conf import settings
 from rest_framework import status
 import os
-from ..models import ModeldescriptionChart, CommonParts, PumpManual
+from ..models import ModeldescriptionChart, CommonParts, PumpManual, SeatOptions
 from utils.model_description5 import extract_model_description_chart
 from ..serializers import PumpManualSerializer
 
@@ -27,7 +27,7 @@ class CommonPartsAPI(APIView):
         print("Checking path:", file_path)
 
         if os.path.exists(file_path):
-            check_commonParts =  CommonParts.objects.filter(productSeries = productSeries).first()
+            check_commonParts =  SeatOptions.objects.filter(productSeries = productSeries).first()
             if check_commonParts:
                 return Response({
                     "message": "File already exists",
@@ -35,18 +35,18 @@ class CommonPartsAPI(APIView):
                 }, status=status.HTTP_200_OK)
             else:
                 # extract_common_parts(pdf_file, page_number)
-                common_parts = common_parts_final.extract_common_parts(file_path,pageNumber)
-                if common_parts:
-                    CommonParts.objects.create(
+                seat_options = common_parts_final.extract_common_parts(file_path,pageNumber)
+                if seat_options:
+                    SeatOptions.objects.create(
                         productSeries = productSeries, 
-                        commonPartJson = common_parts,
+                        commonPartJson = seat_options,
                         status="Y"
                         )
-                    print('common_parts', common_parts)
+                    print('common_parts', )
                     
                     return Response({
                         "message": "File already exists",
-                        "common_parts": common_parts
+                        "common_parts": seat_options
                     }, status=status.HTTP_200_OK)
 
         return Response({
