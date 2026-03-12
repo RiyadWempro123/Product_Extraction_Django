@@ -132,6 +132,7 @@ def parse_seat_table1(table):
             })
 
     return records
+    
 
 # ----------------------------
 # Extract tables from PDF

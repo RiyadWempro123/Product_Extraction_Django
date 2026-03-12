@@ -67,7 +67,7 @@ class CommonParts(models.Model):
 
 class SeatOptions(models.Model):
     productSeries = models.CharField(max_length=100)
-    SeatOptionJson = models.TextField(blank=True, null = True)
+    seatOptionJson = models.TextField(blank=True, null = True)
     status = models.CharField(max_length=1, default="N")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

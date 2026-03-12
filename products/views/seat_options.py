@@ -8,9 +8,9 @@ from ..models import ModeldescriptionChart, CommonParts, PumpManual, SeatOptions
 from utils.model_description5 import extract_model_description_chart
 from ..serializers import PumpManualSerializer
 
-from utils import common_parts_final
+from utils import seat_options_data
 
-class CommonPartsAPI(APIView):
+class SeatOptionsAPI(APIView):
     def post(self, request):
 
         pdf_file = request.FILES.get("pdfFile")
@@ -31,22 +31,22 @@ class CommonPartsAPI(APIView):
             if check_commonParts:
                 return Response({
                     "message": "File already exists",
-                    "common_parts": "success"
+                    "seat_options": "success"
                 }, status=status.HTTP_200_OK)
             else:
                 # extract_common_parts(pdf_file, page_number)
-                seat_options = common_parts_final.extract_common_parts(file_path,pageNumber)
+                seat_options = seat_options_data.extract_seat_options_from_pdf(file_path,pageNumber)
                 if seat_options:
                     SeatOptions.objects.create(
                         productSeries = productSeries, 
-                        commonPartJson = seat_options,
+                        seatOptionJson = seat_options,
                         status="Y"
                         )
-                    print('common_parts', )
+                    print('seat_options', seat_options)
                     
                     return Response({
                         "message": "File already exists",
-                        "common_parts": seat_options
+                        "seat_options": seat_options
                     }, status=status.HTTP_200_OK)
 
         return Response({
