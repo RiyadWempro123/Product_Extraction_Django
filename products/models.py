@@ -26,7 +26,7 @@ class PumpManual(models.Model):
         db_table = "PumpManual"
 
     def __str__(self):
-        return f"{self.brandName} - {self.seriesName}"
+        return f"{self.brand} - {self.modelName}"
 
 class ModeldescriptionChart(models.Model):
     productSeries = models.CharField(max_length=100)
@@ -48,7 +48,7 @@ class ModeldescriptionChart(models.Model):
         db_table = "ModeldescriptionChart"
 
     def __str__(self):
-        return f"{self.modelSeries} - {self.center_body_material}"
+        return f"{self.modelSeries} - {self.productSeries}"
 
 
 class CommonParts(models.Model):
@@ -57,8 +57,6 @@ class CommonParts(models.Model):
     status = models.CharField(max_length=1, default="N")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    
-    
     class Meta:
         db_table = "CommonParts"
 
@@ -75,6 +73,22 @@ class SeatOptions(models.Model):
     
     class Meta:
         db_table = "SeatOptions"
+
+    def __str__(self):
+        return f"{self.productSeries}"
+    
+    
+class BallOptions(models.Model):
+    productSeries = models.CharField(max_length=100)
+    ballOptionJson = models.TextField(blank=True, null = True)
+    brand = models.CharField(max_length=30, blank=True, null=True)
+    status = models.CharField(max_length=1, default="N")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    
+    class Meta:
+        db_table = "BallOptions"
 
     def __str__(self):
         return f"{self.productSeries}"
