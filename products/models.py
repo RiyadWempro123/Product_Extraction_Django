@@ -92,3 +92,19 @@ class BallOptions(models.Model):
 
     def __str__(self):
         return f"{self.productSeries}"
+
+class AirMotorOptions(models.Model):
+    productSeries = models.CharField(max_length=100)
+    airPartOptionJson = models.TextField(blank=True, null = True)
+    brand = models.CharField(max_length=30, blank=True, null=True)
+    status = models.CharField(max_length=1, default="N")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    
+    class Meta:
+        db_table = "AirMotorOptions"
+
+    def __str__(self):
+        return f"{self.productSeries}"
+    
