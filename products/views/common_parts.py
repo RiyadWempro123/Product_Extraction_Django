@@ -13,7 +13,7 @@ from utils import common_parts_final
 class CommonPartsAPI(APIView):
     def post(self, request):
 
-        pdf_file = request.FILES.get("pdfFile")
+        pdf_file = request.FILES. get("pdfFile")
 
         if not pdf_file:
             return Response({"error": "PDF file required"}, status=status.HTTP_400_BAD_REQUEST)
