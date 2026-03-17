@@ -12,8 +12,5 @@ urlpatterns = [
     path("seatoptions/", seat_options.SeatOptionsAPI.as_view(), name="seatoptions"),
     path("balloptions/", ball_options.BallOptionsAPI.as_view(), name="seatoptions"),
     path("airmotorpartOptions/", air_section.AirMotorOptionsAPI.as_view(), name="seatoptions"),
-    path("", homepage.home, name="homepage")
-    
-
-    
+    path("", homepage.home, name="homepage")   
 ]

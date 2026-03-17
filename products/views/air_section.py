@@ -20,6 +20,7 @@ class AirMotorOptionsAPI(APIView):
         pageNumber = int(request.data.get("pageNumber", 1))
         productSeries = request.data.get("productSeries")
         print("productSeries", productSeries)
+        print ("productSeries", )
 
         # Full path: media/pdfs/filename.pdf
         file_path = os.path.join(settings.MEDIA_ROOT, "pdfs", pdf_file.name)
@@ -36,6 +37,7 @@ class AirMotorOptionsAPI(APIView):
             else:
                 # extract_common_parts(pdf_file, page_number)
                 air_motor_options = air_motor_data.extract_from_pdf(file_path,pageNumber)
+                print("air_motor_options")
                 if air_motor_options:
                     BallOptions.objects.create(
                         productSeries = productSeries, 
@@ -53,3 +55,4 @@ class AirMotorOptionsAPI(APIView):
             "message": "File does not exist",
             "path": file_path
         }, status=status.HTTP_200_OK)
+        
