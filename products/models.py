@@ -8,17 +8,21 @@ def pump_pdf_path(instance, filename):
     # This keeps the ORIGINAL filename
     return f"pdfs/{filename}"
 
-
 class PumpManual(models.Model):
-    brand = models.CharField(max_length=100)
-    productSeries = models.CharField(max_length=100)
+    brandName = models.CharField(max_length=100)
+    seriesName = models.CharField(max_length=100)
+    seriesNumber = models.CharField (max_length=100, blank=True, null=True)
     modelName = models.CharField(max_length=100, blank=True)
-    # pdfFile = models.FileField(upload_to=pump_pdf_path)
-    pdfFile = models.FileField(
+    
+    fileName = models.FileField(
         upload_to=pump_pdf_path,
         storage=OverwriteStorage()
     )
-    # partsJson = models.JSONField(null=True, blank=True)
+    modelDescriptionChart = models.CharField(max_length=5, blank=True, null=True)
+    commonParts = models.CharField(max_length=5, blank=True, null=True)
+    seatOptions = models.CharField(max_length=5, blank=True, null=True)
+    ballOptions = models.CharField(max_length=5, blank=True, null=True)
+    airMotorSections = models.CharField(max_length=5, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

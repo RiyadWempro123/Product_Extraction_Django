@@ -3,18 +3,7 @@ import re
 import json
 from pathlib import Path
 
-# ---------------------------------------------------
-# CONFIG
-# ---------------------------------------------------
 
-# PDF_FILE = Path("PX01X.pdf")
-# OUTPUT_FILE = Path("output/model_description_chart_PX01X.json")
-
-# OUTPUT_FILE.parent.mkdir(exist_ok=True)
-
-# ---------------------------------------------------
-# SECTION SYNONYMS (MATCHES YOUR PDF)
-# ---------------------------------------------------
 
 SECTION_SYNONYMS = {
     "Model Series": ["model series"],

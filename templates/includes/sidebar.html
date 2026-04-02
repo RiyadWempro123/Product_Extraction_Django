@@ -1,195 +1,119 @@
 {% load static %}
 
 <div class="sidebar-brand">
-          <!--begin::Brand Link-->
-          <a href="./index.html" class="brand-link">
-            <!--begin::Brand Image-->
-            {% comment %} static/adminlte/src/assets/img/AdminLTELogo.png {% endcomment %}
-            <img
-              src="{% static 'adminlte/src/assets/img/logo.jpeg' %}"
-              {% comment %} src="./assets/img/AdminLTELogo.png" {% endcomment %}
-              alt="AdminLTE Logo"
-              class="brand-image opacity-75 shadow"
-            />
-            <!--end::Brand Image-->
-            <!--begin::Brand Text-->
-            <span class="brand-text fw-light">Element Search </span>
-            <!--end::Brand Text-->
-          </a>
-          <!--end::Brand Link-->
-        </div>
-        <!--end::Sidebar Brand-->
-        <!--begin::Sidebar Wrapper-->
-        <div class="sidebar-wrapper">
-          <nav class="mt-2">
-            <!--begin::Sidebar Menu-->
-            <ul
-              class="nav sidebar-menu flex-column"
-              data-lte-toggle="treeview"
-              role="navigation"
-              aria-label="Main navigation"
-              data-accordion="false"
-              id="navigation"
-            >
-              {% comment %} <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
-                  <i class="nav-icon bi bi-speedometer"></i>
-                  <p>
-                    Dashboard
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                
-              </li> {% endcomment %}
-              
-              
-              
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-tree-fill"></i>
-                  <p>
-                    Product Series
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./UI/general.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>General</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./UI/icons.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Icons</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./UI/timeline.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Timeline</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-pencil-square"></i>
-                  <p>
-                    Brand List
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./forms/general.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>General Elements</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-table"></i>
-                  <p>
-                    Products List
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="./tables/simple.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Simple Tables</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+  <a href="{% url 'dashboard' %}" class="brand-link">
+    <img
+      src="{% static 'adminlte/src/assets/img/logo.jpeg' %}"
+      alt="Logo"
+      class="brand-image opacity-75 shadow"
+    />
+    <span class="brand-text fw-light">Element Search</span>
+  </a>
+</div>
 
-              
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                  <p>
-                    Auth
-                    <i class="nav-arrow bi bi-chevron-right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                      <p>
-                        Version 1
-                        <i class="nav-arrow bi bi-chevron-right"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="./examples/login.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="./examples/register.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                      <p>
-                        Version 2
-                        <i class="nav-arrow bi bi-chevron-right"></i>
-                      </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="./examples/login-v2.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Login</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="./examples/register-v2.html" class="nav-link">
-                          <i class="nav-icon bi bi-circle"></i>
-                          <p>Register</p>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a href="./examples/lockscreen.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Lockscreen</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+<div class="sidebar-wrapper">
+  <nav class="mt-2">
+    <ul class="nav sidebar-menu flex-column"
+        data-lte-toggle="treeview"
+        data-accordion="false">
 
-             
-              
-             
-              
+      <!-- Product Series -->
+      <li class="nav-item">
+        <a href="{% url 'detailsInfo' %}" class="nav-link">
+          <i class="nav-icon bi bi-tree-fill"></i>
+          <p>
+            Add Series  
+            <i class="nav-arrow bi bi-chevron-right"></i>
+          </p>
+        </a>
+        {% comment %} {% url 'series_list' %} {% endcomment %}
+        {% comment %} <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{% url 'detailsInfo' %}" class="nav-link">
+              <i class="nav-icon bi bi-circle"></i>
+              <p>All Series</p>
+            </a>
+          </li>
+        </ul> {% endcomment %}
+      </li>
 
-              
-                    </ul>
-                  </li>
-                  
-                </ul>
-              </li>
-              
+      <!-- Products -->
+      <li class="nav-item">
+        <a href="{% url 'addModelDescription' %}" class="nav-link">
+          <i class="nav-icon bi bi-table"></i>
+          <p>
+            Model Description Chart
+            <i class="nav-arrow bi bi-chevron-right"></i>
+          </p>
+        </a>
+        
+      </li>
 
-              
-              
-              
-            </ul>
-            <!--end::Sidebar Menu-->
-          </nav>
-        </div>
+
+
+
+      <!-- Brand List -->
+      <li class="nav-item">
+        <a href="{% url 'commonParts' %}" class="nav-link">
+          <i class="nav-icon bi bi-pencil-square"></i>
+          <p>
+            Common Parts 
+            <i class="nav-arrow bi bi-chevron-right"></i>
+          </p>
+        </a>
+        {% comment %} <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon bi bi-circle"></i>
+              <p>All Brands</p>
+            </a>
+          </li>
+        </ul> {% endcomment %}
+      </li>
+
+      <!-- Products -->
+      <li class="nav-item">
+        <a href="{% url 'seatOptions' %}" class="nav-link">
+          <i class="nav-icon bi bi-table"></i>
+          <p>
+            Seat Options 
+            <i class="nav-arrow bi bi-chevron-right"></i>
+          </p>
+        </a>
+        {% comment %} <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon bi bi-circle"></i>
+              <p>All Products</p>
+            </a>
+          </li>
+        </ul> {% endcomment %}
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon bi bi-table"></i>
+          <p>
+            Ball Options
+            <i class="nav-arrow bi bi-chevron-right"></i>
+          </p>
+        </a>
+        
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon bi bi-table"></i>
+          <p>
+            Air Motor Sections 
+            <i class="nav-arrow bi bi-chevron-right"></i>
+          </p>
+        </a>
+        
+      </li>
+
+      
+
+    </ul>
+  </nav>
+</div>

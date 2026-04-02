@@ -1,0 +1,115 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Model Description Chart {% endblock %}
+{% block page_title %}Series Entry Form {% endblock %}
+
+{% block content %}
+
+
+
+<!-- Modern Form Section -->
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Add New Series</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{% url 'seriesentry' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+          <div class="mb-3">
+            <label for="brandName" class="form-label">Brand Name</label>
+            <input type="text" class="form-control form-control-lg" id="brandName" name="brandName" placeholder="Enter Brand Name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="seriesName" class="form-label">Series Name</label>
+            <input type="text" class="form-control form-control-lg" id="seriesName" name="seriesName" placeholder="Enter Series Name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="seriesNumber" class="form-label">Series Number</label>
+            <input type="text" class="form-control form-control-lg" id="seriesNumber" name="seriesNumber" placeholder="Enter Series Number For Ex PX03P-XXX-XXX-AXXX" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="fileName" class="form-label">File Name</label>
+            <input type="file" class="form-control form-control-lg" id="fileName" name="fileName" placeholder="Enter File Name" required>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="modelDescriptionChart" class="form-label">Model Description Chart</label>
+            <input type="text" class="form-control form-control-lg" id="modelDescriptionChart" name="modelDescriptionChart" placeholder="Enter Page Number For Model Description Chart" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="commonParts" class="form-label">Common Parts</label>
+            <input type="text" class="form-control form-control-lg" id="commonParts" name="commonParts" placeholder="Enter Page Number For Common Parts" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="seatOptions" class="form-label"> Seat Options</label>
+            <input type="text" class="form-control form-control-lg" id="seatOptions" name="seatOptions" placeholder="Enter Page Number For Seat Options" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="ballOptions" class="form-label"> Ball Options</label>
+            <input type="text" class="form-control form-control-lg" id="ballOptions" name="ballOptions" placeholder="Enter Page Number For Seat Options" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="airMotorSections" class="form-label"> AIR MOTOR SECTION</label>
+            <input type="text" class="form-control form-control-lg" id="airMotorSections" name="airMotorSections" placeholder="Enter Page Number For AIR MOTOR SECTION" required>
+          </div>
+
+         
+
+          
+
+          <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Modern Form Customizations */
+.card {
+    border-radius: 12px;
+}
+
+.card-header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-weight: 600;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 8px rgba(0,123,255,0.3);
+    border-color: #0d6efd;
+}
+
+.btn-primary {
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+}
+</style>
+{% endblock %}

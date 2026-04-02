@@ -1,0 +1,36 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Common Parts {% endblock %}
+{% block page_title %}Common Parts{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Add Common Parts</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{% url 'seriesentry' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+         
+          <div class="mb-3">
+            <label for="seriesName" class="form-label">Series Name</label>
+            <input type="text" class="form-control form-control-lg" id="seriesName" name="seriesName" placeholder="Enter Series Name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="seriesNumber" class="form-label">Series Number</label>
+            <input type="text" class="form-control form-control-lg" id="seriesNumber" name="seriesNumber" placeholder="Enter Series Number For Ex PX03P-XXX-XXX-AXXX" required>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-lg w-100">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

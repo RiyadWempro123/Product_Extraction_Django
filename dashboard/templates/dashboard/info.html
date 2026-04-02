@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Series Information {% endblock %}
+{% block page_title %}Series Entry Information{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <div class="small-box text-bg-primary">
+      <div class="inner">
+        <h3>{{ brand_count }}</h3>
+            <p>Brand Name: {{ message.brandName }}</p>
+            <p>Series Name: {{ message.seriesName }}</p>
+            <p>Series Number: {{ message.seriesNumber }}</p>
+            <p>File: {{ message.fileName }}</p>
+            <p>Model Chart: {{ message.modelDescriptionChart }}</p>
+            <p>Common Parts: {{ message.commonParts }}</p>
+            <p>Seat Options: {{ message.seatOptions }}</p>
+            <p>Ball Options: {{ message.ballOptions }}</p>
+            <p>Air Motor Sections: {{ message.airMotorSections }}</p></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
