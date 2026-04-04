@@ -7,6 +7,7 @@ from pathlib import Path
 
 SECTION_SYNONYMS = {
     "Model Series": ["model series"],
+    "Air Motor":["air motor air cap material"],
     "Center Body Material": ["center body material"],
     "Connection": ["connection", "fluid connection"],
     "Fluid Caps / Manifold Material": [

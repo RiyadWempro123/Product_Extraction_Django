@@ -12,6 +12,8 @@ urlpatterns = [
     path ("modelDescriptionList/", model_description.ModelDescriptionList, name = "modelDescriptionList"),
     path ("seriesentry/", series_entry.SeriesEntry, name = "seriesentry"),
     path ("commonParts/", common_parts.CommonParts, name = "commonParts"),
+    path ("commonPartList/", common_parts.CommonPartList, name = "commonPartList"),
+    
     path ("seatOptions/", seat_options.SeatOptions, name = "seatOptions"),
     
 ]

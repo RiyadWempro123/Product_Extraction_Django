@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Common Parts{% endblock %}
+{% block page_title %}Common Parts List{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Common Parts</h5>
+  </div>
+
+  <div class="card-body">
+
+    <table class="table table-bordered table-hover table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th style="width:80px;">Item</th>
+          <th>Description</th>
+          <th style="width:120px;">Part No</th>
+          <th style="width:80px;">Qty</th>
+          <th style="width:100px;">Material</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for part in data %}
+        <tr>
+          <td><strong>{{ part.item }}</strong></td>
+          <td>{{ part.description }}</td>
+          <td>{{ part.part_no }}</td>
+          <td>{{ part.qty }}</td>
+          <td>{{ part.material }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="text-center text-muted">
+            No Common Parts Found
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Model Description Chart{% endblock %}
+{% block page_title %}Model Description Chart Information {% endblock %}
+
+{% block content %}
+
+<div class="accordion" id="accordionExample">
+  {% for category, items in data.items %}
+  <div class="accordion-item">
+    
+    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+      <button class="accordion-button collapsed" 
+              type="button"
+              data-bs-toggle="collapse" 
+              data-bs-target="#collapse{{ forloop.counter }}"
+              aria-expanded="false"
+              aria-controls="collapse{{ forloop.counter }}">
+        {{ category }}
+      </button>
+    </h2>
+
+    <div id="collapse{{ forloop.counter }}" 
+         class="accordion-collapse collapse" 
+         aria-labelledby="heading{{ forloop.counter }}"
+         data-bs-parent="#accordionExample">
+
+      <div class="accordion-body">
+
+        <table class="table table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th style="width:150px;">Code</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in items %}
+            <tr>
+              <td><strong>{{ item.code }}</strong></td>
+              <td>{{ item.description }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="2" class="text-center">No data available</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
