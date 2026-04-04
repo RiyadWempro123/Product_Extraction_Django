@@ -15,5 +15,6 @@ urlpatterns = [
     path ("commonPartList/", common_parts.CommonPartList, name = "commonPartList"),
     
     path ("seatOptions/", seat_options.SeatOptions, name = "seatOptions"),
+    path ("seatOptionList/", seat_options.SeatOptionList, name = "seatOptionList"),
     
 ]

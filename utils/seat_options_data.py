@@ -148,7 +148,7 @@ def extract_seat_options_from_pdf(pdf_file, page_number):
             return []
 
         for table in tables:
-            print("table........", table )
+            # print("table........", table )
             seat_records = parse_seat_table(table)
             all_records.extend(seat_records)
 

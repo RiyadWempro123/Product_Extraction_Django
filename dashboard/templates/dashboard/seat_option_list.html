@@ -1,0 +1,47 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Seat Options{% endblock %}
+{% block page_title %}Seat Options List{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Seat Options</h5>
+  </div>
+
+  <div class="card-body">
+
+    <table class="table table-bordered table-hover table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th style="width:100px;">Code</th>
+          <th>Part Number</th>
+          <th style="width:80px;">Qty</th>
+          <th style="width:100px;">Material</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for seat in data %}
+        <tr>
+          <td><strong>{{ seat.code }}</strong></td>
+          <td>{{ seat.part_number }}</td>
+          <td>{{ seat.qty }}</td>
+          <td>{{ seat.material }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4" class="text-center text-muted">
+            No Seat Options Found
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}
