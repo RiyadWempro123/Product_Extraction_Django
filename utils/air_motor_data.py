@@ -2,9 +2,9 @@ import pdfplumber
 import json
 import re
 
-PDF_FILE = "manual2.pdf"
-PAGE_NUMBER = 8
-OUTPUT_JSON = "air_section_parts.json"
+# PDF_FILE = "manual2.pdf"
+# PAGE_NUMBER = 8
+# OUTPUT_JSON = "air_section_parts.json"
 
 
 
@@ -152,11 +152,11 @@ def extract_from_pdf(pdf_file, page_number):
     return all_records
 
 
-if __name__ == "__main__":
-    data = extract_from_pdf(PDF_FILE, PAGE_NUMBER)
+# if __name__ == "__main__":
+#     data = extract_from_pdf(PDF_FILE, PAGE_NUMBER)
 
-    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
+#     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+#         json.dump(data, f, indent=2)
 
-    print(f" Extracted {len(data)} records")
-    print(f" Saved to {OUTPUT_JSON}")
+#     print(f" Extracted {len(data)} records")
+#     print(f" Saved to {OUTPUT_JSON}")

@@ -89,7 +89,7 @@ def extract_ball_options_from_pdf(pdf_file, page_number):
             return []
 
         for table in tables:
-            print("tables....................", table)
+            # print("tables....................", table)
             ball_records = parse_ball_table(table)
             all_records.extend(ball_records)
 

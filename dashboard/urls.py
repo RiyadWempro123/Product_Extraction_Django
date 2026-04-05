@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import dashboard, model_list, series_entry, model_description, common_parts, seat_options
+from .views import dashboard, model_list, series_entry, model_description, common_parts, seat_options, ball_options, air_sections
 
 
 
@@ -16,5 +16,11 @@ urlpatterns = [
     
     path ("seatOptions/", seat_options.SeatOptions, name = "seatOptions"),
     path ("seatOptionList/", seat_options.SeatOptionList, name = "seatOptionList"),
+    
+    path ("ballOptions/", ball_options.BallOptions, name = "ballOptions"),
+    path ("ballOptionList/", ball_options.BallOptionList, name = "ballOptionList"),
+    
+    path ("airSections/", air_sections.AirSections, name = "airSections"),
+    path ("airSectionsList/", air_sections.AirSectionsList, name = "airSectionsList"),
     
 ]
