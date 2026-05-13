@@ -6,8 +6,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-38^2n-%^!p-qlr_8b-nin+nxiei3(*nj%0$!k4jetc+t4c^jv!'
@@ -30,8 +28,6 @@ INSTALLED_APPS = [
     'rest_framework',
     "products",
     "dashboard",
-    
- 
 ]
 
 MIDDLEWARE = [

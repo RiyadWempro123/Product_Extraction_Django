@@ -1,0 +1,134 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- Model Description Chart -->
+        <div class="col-md-4">
+            <a href="{% url 'model-description-view' seriesNumber %}" class="text-decoration-none">
+                <div class="option-card">
+                    <div class="icon-box">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <h4>Model Description Chart</h4>
+                    {{seriesNumber}}
+                    <p>View complete model description details.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Common Parts -->
+        <div class="col-md-4">
+            <a href="{% url 'common-parts-view' seriesNumber %}" class="text-decoration-none">
+                <div class="option-card">
+                    <div class="icon-box">
+                        <i class="bi bi-gear"></i>
+                    </div>
+                    <h4>Common Parts</h4>
+                     {{seriesNumber}}
+                    <p>Browse all common parts information.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Seat Options -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none">
+                <div class="option-card">
+                    <div class="icon-box">
+                        <i class="bi bi-chair"></i>
+                    </div>
+                    <h4>Seat Options</h4>
+                    <p>Explore available seat option details.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Ball Options -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none">
+                <div class="option-card">
+                    <div class="icon-box">
+                        <i class="bi bi-circle"></i>
+                    </div>
+                    <h4>Ball Options</h4>
+                    <p>See all ball option specifications.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Air Motor Options -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none">
+                <div class="option-card">
+                    <div class="icon-box">
+                        <i class="bi bi-wind"></i>
+                    </div>
+                    <h4>Air Motor Options</h4>
+                    <p>Check air motor option configurations.</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+.option-card{
+    background:#ffffff;
+    border-radius:20px;
+    padding:35px 25px;
+    text-align:center;
+    border:1px solid #e9ecef;
+    transition:all 0.35s ease;
+    height:100%;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+.option-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    border-color:#0d6efd;
+}
+
+.icon-box{
+    width:75px;
+    height:75px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:#f1f6ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    color:#0d6efd;
+    transition:0.3s;
+}
+
+.option-card:hover .icon-box{
+    background:#0d6efd;
+    color:#fff;
+}
+
+.option-card h4{
+    font-size:22px;
+    font-weight:700;
+    color:#212529;
+    margin-bottom:12px;
+}
+
+.option-card p{
+    color:#6c757d;
+    margin-bottom:0;
+    font-size:15px;
+}
+
+</style>
+
+{% endblock %}

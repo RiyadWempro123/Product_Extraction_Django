@@ -6,6 +6,21 @@ import os
 from django.conf import settings
 
 # Create your views here.
+
+def SeriesList(request):
+    series_data = PumpManual.objects.all()
+    context = {
+        "series_data": series_data
+    }
+    return render(request, "dashboard/series_list.html", context)
+
+def SeriesDetail(request, seriesNumber):
+    # series = PumpManual.objects.get(seriesNumber=seriesNumber)
+    context = {
+        "seriesNumber": seriesNumber
+    }
+    return render(request, "dashboard/series_detail.html", context)
+
 def ModelDescriptionChart(request):
     context = {
         "message": "Welcome to Django Templates"

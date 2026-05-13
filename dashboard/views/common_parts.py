@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from products.models import PumpManual
+from products.models import PumpManual, CommonParts
 from utils import common_parts_final
-import os
+import os,json
 from django.conf import settings
 
 # Create your views here.
-def CommonParts(request):
+def CommonPartsEntry(request):
     context = {
         "message": "Welcome to Django Templates"
     }
     return render(request, "dashboard/common_parts.html", context)
 
-def CommonPartList(request):
+def CommonPartListSave(request):
     if request.method == "POST":
         
         data = request.POST
@@ -31,6 +31,11 @@ def CommonPartList(request):
                     print("✅ File found:", file_path)
                     get_common_parts = common_parts_final.extract_common_parts(file_path, int(commonPartPage))
                     print("get_common_parts", get_common_parts)
+                    save_common_parts = CommonParts.objects.create(
+                        productSeries=seriesNumber,
+                        status = "Y",
+                        commonPartJson=json.dumps(get_common_parts)
+                    )
 
                 else:
                     print("❌ File not found in static/pdf folder")
@@ -43,3 +48,12 @@ def CommonPartList(request):
     print("context", context)
     return render(request, "dashboard/common_part_list.html", context)
     
+def CommonPartView(request, seriesNumber):
+    print("Series Number:", seriesNumber)
+    get_common_parts = CommonParts.objects.filter(productSeries=seriesNumber).first()
+    if get_common_parts:
+        context = {
+            "data": json.loads(get_common_parts.commonPartJson)
+        }
+    print("context", context)
+    return render(request, "dashboard/common_part_list.html", context)

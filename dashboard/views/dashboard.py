@@ -5,4 +5,4 @@ def home(request):
     context = {
         "message": "Welcome to Django Templates"
     }
-    return render(request, "layouts/base.html", context)
+    return render(request, "pages/home.html", context)

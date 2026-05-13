@@ -30,21 +30,12 @@ class PumpManual(models.Model):
         db_table = "PumpManual"
 
     def __str__(self):
-        return f"{self.brand} - {self.modelName}"
+        return f"{self.brandName} - {self.modelName}"
 
 class ModeldescriptionChart(models.Model):
-    productSeries = models.CharField(max_length=100)
-    modelSeries = models.TextField(blank=True, null= True)
-    centerBodyMaterial = models.TextField(blank=True, null = True)
-    fluidConnection = models.TextField (blank=True, null = True)
-    fluidCapsManifoldMaterial = models.TextField (blank=True, null = True)
-    hardwareMaterial = models.TextField(blank=True, null= True)
-    seatMaterial = models.TextField(blank=True, null = True)
-    checkMaterial = models.TextField (blank=True, null = True)
-    specialtyCode1 = models.TextField (blank=True, null = True)
-    specialtyCode2 = models.TextField(blank=True, null= True)
-    specialTesting = models.TextField (blank=True, null = True)
-    fileName  = models.TextField(blank=True, null=True)
+    seriesName = models.CharField(max_length=100, blank=True, null=True)
+    seriesNumber = models.TextField(max_length=100, blank=True, null = True)
+    modelDescriptionChartJson = models.TextField (blank=True, null = True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
@@ -52,7 +43,7 @@ class ModeldescriptionChart(models.Model):
         db_table = "ModeldescriptionChart"
 
     def __str__(self):
-        return f"{self.modelSeries} - {self.productSeries}"
+        return f"{self.seriesName} - {self.seriesNumber}"
 
 
 class CommonParts(models.Model):

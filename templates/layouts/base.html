@@ -3,71 +3,86 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>{% block title %}Admin Dashboard{% endblock %}</title>
+    <meta charset="utf-8">
+    <title>{% block title %}Admin Dashboard{% endblock %}</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{% static 'adminlte/dist/css/adminlte.css' %}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="{% static 'adminlte/dist/css/adminlte.css' %}">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    {% block extra_css %}
+    {% endblock %}
 </head>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
 
 <div class="app-wrapper">
 
-  <!-- Navbar -->
-  <nav class="app-header navbar navbar-expand bg-body">
-    <div class="container-fluid">
-      {% include "includes/navbar.html" %}
-    </div>
-  </nav>
-
-  <!-- Sidebar -->
-  <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
-    {% include "includes/sidebar.html" %}
-  </aside>
-
-  <!-- Main Content -->
-  <main class="app-main">
-
-    <!-- Page Header -->
-    <div class="app-content-header">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6">
-            <h3 class="mb-0">{% block page_title %}Dashboard{% endblock %}</h3>
-          </div>
+    <!-- Navbar -->
+    <nav class="app-header navbar navbar-expand bg-body">
+        <div class="container-fluid">
+            {% include "includes/navbar.html" %}
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <!-- Page Content -->
-    <div class="app-content">
-      <div class="container-fluid">
-        {% block content %}
-        <p> Wempro help clients exceed their business goals using online marketing by creating brand compelling stories with content that educates and entertains. We believe in treating your business as our own or as if we were part of yours. At Wepmro, we do not cutting corners or practice unethical marketing tactics. Our talented team of smart, creative and results-focused professionals has developed methodologies for tackling the most challenging digital marketing solutions. Since 1999, we’ve made it our mission to help businesses grow online and watch that growth continue offline.
+    <!-- Sidebar -->
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        {% include "includes/sidebar.html" %}
+    </aside>
 
-At WEMPRO, we believe in delivering only the best to our customers since our foundation is based on “Our Team = Our Customers + Us”. There is no way we could describe our team without including our clients. Some of the top innovators in their industries, our clients have tremendous expectations and provide us with the challenges we crave. It’s an astoundingly effective collaboration that makes our joint vision become reality and yields amazing results. </p> 
-        {% endblock %}
-      </div>
-    </div>
+    <!-- Main Content -->
+    <main class="app-main">
 
-  </main>
+        <!-- Page Header -->
+        <div class="app-content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">
+                            {% block page_title %}
+                          
+                            {% endblock %}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <!-- Footer -->
-  <footer class="app-footer">
-    <div class="float-end d-none d-sm-inline">Anything you want</div>
-    <strong>© 2026 Wempro Limited</strong>
-  </footer>
+        <!-- Page Content -->
+        <div class="app-content">
+            <div class="container-fluid py-4">
+
+                {% block content %}
+                {% endblock %}
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="float-end d-none d-sm-inline">
+            Anything you want
+        </div>
+
+        <strong>
+            © 2026 Wempro Limited
+        </strong>
+    </footer>
 
 </div>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
-<script src="{% static 'adminlte/dist/js/adminlte.js' %}"></script>
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- AdminLTE JS -->
+<script src="{% static 'adminlte/dist/js/adminlte.js' %}"></script>
 
 {% block extra_js %}
 {% endblock %}

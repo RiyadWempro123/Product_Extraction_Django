@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from products.models import PumpManual
+from products.models import PumpManual, ModeldescriptionChart
 from utils import model_description
-import os
+import os, json
 from django.conf import settings
 
 # Create your views here.
@@ -32,7 +32,12 @@ def ModelDescriptionList(request):
                     print("✅ File found:", file_path)
                     get_model_description = model_description.extract_model_description_chart(file_path, int(modelDescriptionPage))
                     print("get_model_description", get_model_description)
-
+                    save_model_description = ModeldescriptionChart.objects.create(
+                        seriesName = seriesName,
+                        seriesNumber = seriesNumber,
+                        modelDescriptionChartJson=json.dumps(get_model_description)
+                        
+                    )
                 else:
                     print("❌ File not found in static/pdf folder")
                     file_url = None
@@ -40,6 +45,16 @@ def ModelDescriptionList(request):
         
     context = {
         "data": get_model_description
+    }
+    print("context", context)
+    return render(request, "dashboard/modelDescription_list.html", context)
+    
+def ModelDescriptionView(request, seriesNumber):
+    print ("Series Number:", seriesNumber)
+    get_model_description = ModeldescriptionChart.objects.filter(seriesNumber=seriesNumber).first()
+    if get_model_description:
+        context = {
+        "data": json.loads(get_model_description.modelDescriptionChartJson)
     }
     print("context", context)
     return render(request, "dashboard/modelDescription_list.html", context)

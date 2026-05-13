@@ -1,0 +1,250 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <!-- PAGE HEADER -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold display-6">Series List</h1>
+        <p class="text-muted">
+            Browse all available product series and details
+        </p>
+    </div>
+
+    <!-- SERIES GRID -->
+    <div class="row g-4">
+
+    {% for series in series_data %}
+
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+        <a href="{% url 'series-detail' series.seriesNumber %}" class="series-card">
+
+            <div class="series-card-inner">
+
+                <!-- TOP -->
+                <div class="series-top">
+
+                    <div class="series-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+
+                    <div class="series-badge">
+                        {{ series.seriesNumber }}
+                    </div>
+
+                </div>
+
+                <!-- CONTENT -->
+                <span class="series-brand">
+                    {{ series.brandName }}
+                </span>
+
+                <h3 class="series-title">
+                    {{ series.seriesName }}
+                </h3>
+
+                <p class="series-desc">
+                    Explore complete details, model information,
+                    extraction data and configuration options.
+                </p>
+
+                <!-- FOOTER -->
+                <div class="series-footer">
+
+                    <span class="view-text">
+                        View Details
+                    </span>
+
+                    <div class="arrow-icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+    </div>
+
+</div>
+
+<style>
+/* =========================
+   MODERN SERIES CARD
+========================= */
+
+.series-card{
+    text-decoration:none;
+    display:block;
+    height:100%;
+}
+
+.series-card-inner{
+    position:relative;
+    background:#ffffff;
+    border:1px solid #ececec;
+    border-radius:20px;
+    padding:28px;
+    overflow:hidden;
+    transition:all 0.35s ease;
+    height:100%;
+    box-shadow:0 4px 20px rgba(0,0,0,0.04);
+}
+
+/* HOVER BOX EFFECT */
+.series-card-inner::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:2px solid #0d6efd;
+    border-radius:20px;
+    transform:scale(0.92);
+    opacity:0;
+    transition:all 0.35s ease;
+}
+
+.series-card-inner:hover::after{
+    opacity:1;
+    transform:scale(1);
+}
+
+.series-card-inner:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.10);
+}
+
+/* TOP SECTION */
+.series-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:25px;
+}
+
+/* ICON */
+.series-icon{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+    background:#f4f7ff;
+    color:#0d6efd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+/* NUMBER BADGE */
+.series-badge{
+    background:#0d6efd;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* BRAND */
+.series-brand{
+    color:#0d6efd;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:10px;
+    display:block;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+/* TITLE */
+.series-title{
+    font-size:24px;
+    font-weight:700;
+    color:#222;
+    margin-bottom:16px;
+    line-height:1.4;
+}
+
+/* DESCRIPTION */
+.series-desc{
+    color:#666;
+    font-size:15px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+.series-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px solid #f1f1f1;
+    padding-top:18px;
+}
+
+/* VIEW TEXT */
+.view-text{
+    color:#0d6efd;
+    font-weight:600;
+    font-size:15px;
+}
+
+/* ARROW */
+.arrow-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#f8f9fa;
+    color:#0d6efd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all 0.3s ease;
+}
+
+.series-card-inner:hover .arrow-icon{
+    background:#0d6efd;
+    color:#fff;
+    transform:translateX(4px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+    .series-card-inner{
+        padding:22px;
+    }
+
+    .series-title{
+        font-size:20px;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .series-card-inner{
+        padding:18px;
+        border-radius:16px;
+    }
+
+    .series-title{
+        font-size:18px;
+    }
+
+    .series-desc{
+        font-size:14px;
+    }
+
+}
+</style>
+
+{% endblock %}
